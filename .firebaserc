@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "mjcalc-3ad53"
+    "default": "mjcalc-3ad53",
+    "staging": "mjcalc-staging"
   }
 }
