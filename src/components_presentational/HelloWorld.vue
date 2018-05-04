@@ -1,12 +1,11 @@
 <template>
-  <div id="app">
-    <mj-hello-world></mj-hello-world>
-  </div>
+  <main>
+    Hello world
+  </main>
 </template>
 
 <script>
 export default {
-  name: 'app',
 };
 </script>
 
