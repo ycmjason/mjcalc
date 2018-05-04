@@ -2,7 +2,7 @@ module.exports = {
   root: true,
   'extends': [
     'plugin:vue/essential',
-    '@vue/standard',
+    '@vue/airbnb',
     '@ycm.jason/eslint-config',
-  ]
-}
+  ],
+};

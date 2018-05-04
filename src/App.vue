@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <mj-hello-world></mj-hello-world>
+    <div id="nav">
+      <router-link to="/">Home</router-link>
+    </div>
+    <router-view/>
   </div>
 </template>
 
