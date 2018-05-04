@@ -7,7 +7,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "deploy": "npm run build && firebase use default && firebase deploy",
-    "deploy:staging": "firebase use staging && firebase deploy --token $FIREBASE_DEPLOY_KEY && firebase use default"
+    "deploy:staging": "firebase use staging && firebase deploy && firebase use default"
   },
   "dependencies": {
     "vue": "^2.5.16",
