@@ -2,6 +2,7 @@ module.exports = {
   root: true,
   'extends': [
     'plugin:vue/essential',
-    '@vue/standard'
+    '@vue/standard',
+    '@ycm.jason/eslint-config',
   ]
 }
