@@ -1,12 +1,42 @@
 {
   "name": "mjcalc",
-  "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
-  "keywords": [],
-  "author": "Jason Yu <me@ycmjason.com>",
-  "license": "ISC"
+  "dependencies": {
+    "vue": "^2.5.16",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.0-beta.9",
+    "@vue/cli-plugin-eslint": "^3.0.0-beta.9",
+    "@vue/cli-service": "^3.0.0-beta.9",
+    "@vue/eslint-config-standard": "^3.0.0-beta.9",
+    "lint-staged": "^6.0.0",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6",
+    "vue-template-compiler": "^2.5.13"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "vue-cli-service lint",
+      "git add"
+    ],
+    "*.vue": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  }
 }
