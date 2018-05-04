@@ -1,6 +1,11 @@
 notifications:
   email: false
 
+language: node_js
+
+preinstall:
+  - npm i -g npm
+
 install:
   - npm install
 
