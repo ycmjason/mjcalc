@@ -4,6 +4,9 @@ notifications:
 install:
   - npm install
 
+node_js:
+  - "8"
+
 script:
   - npm run build
 
