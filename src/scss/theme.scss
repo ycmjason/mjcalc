@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=IM+Fell+French+Canon+SC|Oxygen');
+@import "./config.scss";
+
+html, body {
+  background: $theme-color-background;
+  color: $theme-color-foreground;
+  font-size: $theme-font-size-base;
+  font-family: $theme-font-body;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $theme-font-heading;
+}
+
+input, button {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid $theme-color-primary;
+  background: $theme-color-background;
+  outline: none;
+  
+  &:focus {
+    border-color: lighten($theme-color-primary, 20%);
+  }
+}

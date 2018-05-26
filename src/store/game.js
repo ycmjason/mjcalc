@@ -1,6 +1,7 @@
 import gameService from '../services/gameService';
 
 const getInitialState = () => ({
+  started: false,
   buzzword: null,
   players: [],
   rounds: [],
@@ -15,6 +16,7 @@ export default {
 
   mutations: {
     reset: (state) => Object.assign(state, getInitialState()),
+    start: (state) => state.started = true,
     setBuzzword: (state, buzzword) => state.buzzword = buzzword,
     setPlayers: (state, players) => state.players = players,
     addPlayer: (state, player) => state.players.push(player),
@@ -25,16 +27,13 @@ export default {
   actions: {
     reset: ({ commit }) => commit('reset'),
 
-    async start({ commit }, { buzzword, players }) {
+    async start({ commit }, buzzword) {
       commit('setBuzzword', buzzword);
+      const { players, rounds } = await gameService.start(buzzword);
       commit('setPlayers', players);
-      const { rounds } = await gameService.start({ buzzword, players });
       commit('setRounds', rounds);
-      return {
-        buzzword,
-        players,
-        rounds,
-      };
+      commit('start');
+      return { buzzword, players, rounds };
     },
   },
 

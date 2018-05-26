@@ -11,7 +11,6 @@ const registerAll = (context, prefix) => context.keys().forEach(p => {
 });
 
 registerAll(require.context('@/components', false, /.*\.vue/), COMPONENT_PREFIX);
-registerAll(require.context('@/components_presentational', false, /.*\.vue/), `${COMPONENT_PREFIX}P`);
 
 Vue.config.productionTip = false;
 

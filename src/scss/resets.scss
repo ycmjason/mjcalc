@@ -1,0 +1,13 @@
+@import "~normalize.css";
+
+html, body {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+button {
+  color: inherit;
+}
