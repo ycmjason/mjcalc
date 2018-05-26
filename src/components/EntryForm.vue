@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <main>
     <input type="text" v-model="buzzword">
     <button @click="startGame(buzzword)">Start game!</button>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -19,3 +19,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+main {
+  display: flex;
+  flex-direction: column;
+}
+</style>

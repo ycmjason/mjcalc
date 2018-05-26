@@ -12,8 +12,8 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $theme-font-heading;
 }
 
-input, button {
-  padding: 0.25rem 0.5rem;
+input {
+  padding: 0.5rem 1rem;
   border: 1px solid $theme-color-primary;
   background: $theme-color-background;
   outline: none;
@@ -21,4 +21,24 @@ input, button {
   &:focus {
     border-color: lighten($theme-color-primary, 20%);
   }
+}
+
+button {
+  border: 0;
+  padding: 0.5rem 1rem;
+  background: $theme-color-primary;
+  color: $theme-color-background;
+  
+  &:focus {
+    border-color: lighten($theme-color-primary, 20%);
+  }
+}
+
+.container {
+  max-width: 1180px;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
 }
