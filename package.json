@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "dev": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
     "test": "vue-cli-service test",
     "lint": "vue-cli-service lint",
-    "deploy": "npm run build && firebase use default && firebase deploy",
-    "dev": "vue-cli-service serve --open",
-    "deploy:staging": "firebase use staging && firebase deploy && firebase use default"
+    "deploy": "npm run build && firebase use ${FIREBASE_APP:-default} && firebase deploy",
+    "deploy:staging": "FIREBASE_APP=staging npm run deploy"
   },
   "dependencies": {
     "vue": "^2.5.16",
@@ -25,6 +25,7 @@
     "@ycm.jason/eslint-config": "^1.2.2",
     "babel-core": "^7.0.0-0",
     "babel-jest": "^22.4.3",
+    "commitlint": "^6.2.0",
     "firebase-tools": "^3.18.4",
     "lint-staged": "^7.1.0",
     "node-sass": "^4.9.0",
@@ -37,7 +38,8 @@
     "not ie <= 8"
   ],
   "gitHooks": {
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged",
+    "commit-msg": "commitlint -e $GIT_PARAMS"
   },
   "lint-staged": {
     "*.js": [
