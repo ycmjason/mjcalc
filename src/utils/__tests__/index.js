@@ -1,49 +1,41 @@
 import { $random } from '../index';
 
-expect.extend({
-  toBeWholeNumber(received) {
-    if (received % 1 === 0) {
-      return {
-        message: () => `expected ${received} not to be a whole number`,
-        pass: true,
-      };
-    } else {
-      return {
-        message: () => `expected ${received} to be a whole number`,
-        pass: false,
-      };
-    }
-  },
-});
-
 describe('utils', () => {
   describe('$random', () => {
-    it('should generate random from 0 to 1 by default', () => {
-      Array.from({ length: 1000 }, () => $random()).forEach(x => {
-        expect(x).toBeGreaterThanOrEqual(0);
-        expect(x).toBeLessThan(1);
-      });
+    let originalRandom = Math.random;
+
+    beforeEach(() => {
+      Math.random = jest.fn();
     });
 
-    it('should generate random number from 50 to 100', () => {
-      Array.from({ length: 1000 }, () => $random(50, 100)).forEach(x => {
-        expect(x).toBeGreaterThanOrEqual(50);
-        expect(x).toBeLessThan(100);
-      });
+    afterEach(() => {
+      Math.random = originalRandom;
+    });
+
+    it('should use return a number from Math.random', () => {
+      Math.random.mockReturnValue(0.2);
+      expect($random()).toBe(0.2);
+    });
+
+    it('should generate lower limit in range 50 - 100', () => {
+      Math.random.mockReturnValue(0);
+      expect($random(50, 100)).toBe(50);
+    });
+
+    it('should generate in between in range 50 - 100', () => {
+      Math.random.mockReturnValue(0.3);
+      expect($random(50, 100)).toBe(50 + 50 * 0.3);
+    });
+
+    it('should generate upper limit in range 50 - 100', () => {
+      Math.random.mockReturnValue(1);
+      expect($random(50, 100)).toBe(100);
     });
 
     describe('$random.rounded', () => {
       it('should round the number', () => {
-        Array.from({ length: 1000 }, () => $random.rounded(50, 100)).forEach(x => {
-          expect(x).toBeWholeNumber();
-        });
-      });
-
-      it('should be a number between 50 to 100', () => {
-        Array.from({ length: 1000 }, () => $random.rounded(50, 100)).forEach(x => {
-          expect(x).toBeGreaterThanOrEqual(50);
-          expect(x).toBeLessThanOrEqual(100);
-        });
+        Math.random.mockReturnValue(0.3);
+        expect($random.rounded(50, 100)).toBe(Math.round(50 + 50 * 0.3));
       });
     });
   });

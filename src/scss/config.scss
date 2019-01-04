@@ -1,13 +1,12 @@
-$theme-color-primary: #074F57;
-$theme-color-accent: #077187;
-$theme-color-background: #fff;
-$theme-color-foreground: $theme-color-primary;
+$color-primary: #393e46;
+$color-secondary: #EEEEEE;
+$color-accent: #00adb5;
+$color-foreground: #222831;
 
-$theme-font-heading: 'IM Fell French Canon SC', serif;
-$theme-font-body: 'Oxygen', sans-serif;
-$theme-font-size-base: 18px;
+$font-heading: 'Lato', sans-serif;
+$font-body: 'Oxygen', sans-serif;
+$font-size-base: 18px;
 
-$theme-breakpoint-xs: 576px;
-$theme-breakpoint-md: 768px;
-$theme-breakpoint-lg: 992px;
-$theme-breakpoint-xl: 1200px;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;

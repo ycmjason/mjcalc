@@ -27,9 +27,9 @@ export default {
   actions: {
     reset: ({ commit }) => commit('reset'),
 
-    async start({ commit }, buzzword) {
+    async start ({ commit }, buzzword) {
       commit('setBuzzword', buzzword);
-      const { players, rounds } = await gameService.start(buzzword);
+      const { players, rounds } = await gameService.findOrCreate(buzzword);
       commit('setPlayers', players);
       commit('setRounds', rounds);
       commit('start');
