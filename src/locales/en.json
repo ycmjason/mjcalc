@@ -1,3 +1,6 @@
 {
-  "message": "hello i18n !!"
+  "welcome": {
+    "title": "Welcome!",
+    "message": "Welcome to MJCalc! This is the best MahJong Score Calculator you will find because I made it."
+  }
 }

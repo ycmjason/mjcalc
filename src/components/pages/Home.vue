@@ -1,7 +1,28 @@
+<i18n>
+{
+  "en": {
+    "welcome": {
+      "title": "Welcome!",
+      "message": "Welcome to MJCalc! This is the best Mahjong Score Calculator you will find because I built this. Go on and try it out!"
+    }
+  },
+  "ch": {
+    "welcome": {
+      "title": "歡迎!",
+      "message": "Welcome to MJCalc! This is the best Mahjong Score Calculator you will find because I built this. Go on and try it out!"
+    }
+  }
+}
+</i18n>
+
 <template>
   <DefaultLayout>
+    <section class="welcome">
+      <h2>{{ $t('welcome.title') }}</h2>
+      <p>{{ $t('welcome.message') }}</p>
+    </section>
     <section class="joinGameForm">
-      <h2>Join or Create Game</h2>
+      <h3>Join or Create Game</h3>
       <BuzzwordForm @submit="buzzword => start(buzzword)"></BuzzwordForm>
     </section>
   </DefaultLayout>
@@ -9,7 +30,6 @@
 
 <script>
 import { mapActions } from 'vuex';
-
 import DefaultLayout from '../layouts/DefaultLayout.vue';
 import BuzzwordForm from '../BuzzwordForm.vue';
 

@@ -2,7 +2,7 @@
   <div>
     <header>
       <div class="container">
-        <h1>MJCalc</h1>
+        <h1 class="siteName">MJCalc</h1>
       </div>
     </header>
     <main class="container">
@@ -10,11 +10,22 @@
     </main>
     <footer>
       <div class="container">
-        Made with ❤ by Jason Yu
+        <p>
+          Made with ❤ by Jason Yu
+        </p>
+        <LocaleChanger v-model="$i18n.locale"/>
       </div>
     </footer>
   </div>
 </template>
+
+<script>
+import LocaleChanger from '../LocaleChanger.vue';
+
+export default {
+  components: { LocaleChanger },
+};
+</script>
 
 <style lang="scss" scoped>
 @import "@/scss/config.scss";
@@ -24,9 +35,13 @@ header {
   color: #FFFFFF;
   padding: 0.5rem 0;
   margin-bottom: 1rem;
+}
 
-  h1 {
-    margin: 0;
+.siteName {
+  margin: 0;
+  text-align: center;
+  @media screen and (min-width: $breakpoint-sm) {
+    text-align: left;
   }
 }
 
