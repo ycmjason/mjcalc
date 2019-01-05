@@ -4,12 +4,18 @@
     "welcome": {
       "title": "Welcome!",
       "message": "Welcome to MJCalc! This is the best Mahjong Score Calculator you will find because I built this. Go on and try it out!"
+    },
+    "joinGameForm": {
+      "title": "Join or Create Game"
     }
   },
   "ch": {
     "welcome": {
       "title": "歡迎!",
-      "message": "Welcome to MJCalc! This is the best Mahjong Score Calculator you will find because I built this. Go on and try it out!"
+      "message": "歡迎來到麻雀計分器!"
+    },
+    "joinGameForm": {
+      "title": "加入或創建牌局"
     }
   }
 }
@@ -22,7 +28,7 @@
       <p>{{ $t('welcome.message') }}</p>
     </section>
     <section class="joinGameForm">
-      <h3>Join or Create Game</h3>
+      <h3>{{ $t('joinGameForm.title') }}</h3>
       <BuzzwordForm @submit="buzzword => start(buzzword)"></BuzzwordForm>
     </section>
   </DefaultLayout>

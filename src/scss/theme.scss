@@ -31,8 +31,13 @@ button, input[type=submit] {
   color: #FFFFFF;
   
   &:hover {
-    background: lighten($color-primary, 20%);
+    background: lighten($color-primary, 10%);
     cursor: pointer;
+  }
+
+  &:disabled {
+    background: lighten($color-primary, 30%);
+    pointer-events: none;
   }
 }
 

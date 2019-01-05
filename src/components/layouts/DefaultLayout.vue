@@ -1,8 +1,25 @@
+<i18n>
+{
+  "en": {
+    "siteName": "MJCalc",
+    "footer": {
+      "madeby":  "Made with ❤ by Jason Yu"
+    }
+  },
+  "ch": {
+    "siteName": "麻雀計分器",
+    "footer": {
+      "madeby":  "Jason 用 ❤ 做成的"
+    }
+  }
+}
+</i18n>
+
 <template>
   <div>
     <header>
       <div class="container">
-        <h1 class="siteName">MJCalc</h1>
+        <h1 class="siteName">{{ $t('siteName') }}</h1>
       </div>
     </header>
     <main class="container">
@@ -10,10 +27,8 @@
     </main>
     <footer>
       <div class="container">
-        <p>
-          Made with ❤ by Jason Yu
-        </p>
-        <LocaleChanger v-model="$i18n.locale"/>
+        <p>{{ $t('footer.madeby') }}</p>
+        <LocaleChanger />
       </div>
     </footer>
   </div>
@@ -40,6 +55,7 @@ header {
 .siteName {
   margin: 0;
   text-align: center;
+
   @media screen and (min-width: $breakpoint-sm) {
     text-align: left;
   }
@@ -50,5 +66,10 @@ footer {
   min-height: 12rem;
   padding-top: 3rem;
   background: $color-secondary;
+  text-align: center;
+
+  @media screen and (min-width: $breakpoint-sm) {
+    text-align: left;
+  }
 }
 </style>
