@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:700|Raleway');
+@import url('https://fonts.googleapis.com/css?family=Lato:700|Open+Sans');
 @import "./config.scss";
 
 html, body {
@@ -42,7 +42,7 @@ button, input[type=submit] {
 }
 
 .container {
-  max-width: 800px;
+  max-width: $breakpoint-lg;
   width: 100%;
   padding-left: 1rem;
   padding-right: 1rem;

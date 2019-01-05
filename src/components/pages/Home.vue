@@ -7,6 +7,9 @@
     },
     "joinGameForm": {
       "title": "Join or Create Game"
+    },
+    "social": {
+      "title": "Like us on Facebook!"
     }
   },
   "ch": {
@@ -16,6 +19,9 @@
     },
     "joinGameForm": {
       "title": "加入或創建牌局"
+    },
+    "social": {
+      "title": "在面書上讚好!"
     }
   }
 }
@@ -53,6 +59,6 @@ export default {
 @import '@/scss/config.scss';
 
 .joinGameForm {
-  max-width: $breakpoint-md;
+  max-width: $breakpoint-sm;
 }
 </style>

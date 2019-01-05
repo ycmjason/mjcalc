@@ -4,19 +4,32 @@
       class="buzzwordInput"
       type="text"
       placeholder="Game Buzzword"
-      v-model="buzzword">
+      v-model="buzzword"
+      @keydown="onKeydown">
     <input class="startButton" type="submit" value="Start">
   </form>
 </template>
 
 <script>
+const cleanBuzzword = v => v.toUpperCase().replace(/[^A-Z]/g, '');
 export default {
   data: () => ({
     buzzword: '',
   }),
+  watch: {
+    buzzword (v) {
+      this.buzzword = cleanBuzzword(v);
+    },
+  },
   methods: {
     onSubmit () {
       this.$emit('submit', this.buzzword.toUppercase());
+    },
+    onKeydown ($event) {
+      // prevent the flickering input by preventDefault() for non-alphabet characters
+      if (/^[^a-zA-Z]$/.test($event.key)) {
+        $event.preventDefault();
+      }
     },
   },
 };

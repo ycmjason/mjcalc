@@ -3,13 +3,13 @@
   "en": {
     "siteName": "MJCalc",
     "footer": {
-      "madeby":  "Made with ❤ by Jason Yu"
+      "madeBy":  "Made with ❤ by Jason Yu"
     }
   },
   "ch": {
     "siteName": "麻雀計分器",
     "footer": {
-      "madeby":  "Jason 用 ❤ 做成的"
+      "madeBy":  "Jason Yu 用 ❤ 練成的"
     }
   }
 }
@@ -27,8 +27,9 @@
     </main>
     <footer>
       <div class="container">
-        <p>{{ $t('footer.madeby') }}</p>
+        <p>{{ $t('footer.madeBy') }}</p>
         <LocaleChanger />
+        <iframe class="fbPagePlugin" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FMJCalc-2138719219522362%2F&tabs=timeline&width=340&height=222&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=205279280400123" width="340" height="222" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
       </div>
     </footer>
   </div>
@@ -70,6 +71,10 @@ footer {
 
   @media screen and (min-width: $breakpoint-sm) {
     text-align: left;
+  }
+
+  .fbPagePlugin {
+    margin-top: 1rem;
   }
 }
 </style>
