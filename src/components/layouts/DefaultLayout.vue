@@ -66,6 +66,7 @@ footer {
   margin-top: 2rem;
   min-height: 12rem;
   padding-top: 3rem;
+	padding-bottom: 3rem;
   background: $color-secondary;
   text-align: center;
 
@@ -75,6 +76,7 @@ footer {
 
   .fbPagePlugin {
     margin-top: 1rem;
+    max-width: 100%;
   }
 }
 </style>

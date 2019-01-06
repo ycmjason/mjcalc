@@ -29,14 +29,16 @@
 
 <template>
   <DefaultLayout>
-    <section class="welcome">
-      <h2>{{ $t('welcome.title') }}</h2>
-      <p>{{ $t('welcome.message') }}</p>
-    </section>
-    <section class="joinGameForm">
-      <h3>{{ $t('joinGameForm.title') }}</h3>
-      <BuzzwordForm @submit="buzzword => start(buzzword)"></BuzzwordForm>
-    </section>
+    <main>
+      <section class="welcome">
+        <h2>{{ $t('welcome.title') }}</h2>
+        <p>{{ $t('welcome.message') }}</p>
+      </section>
+      <section class="joinGameForm">
+        <h2>{{ $t('joinGameForm.title') }}</h2>
+        <BuzzwordForm @submit="buzzword => start(buzzword)"></BuzzwordForm>
+      </section>
+    </main>
   </DefaultLayout>
 </template>
 
@@ -58,7 +60,13 @@ export default {
 <style lang="scss" scoped>
 @import '@/scss/config.scss';
 
-.joinGameForm {
-  max-width: $breakpoint-sm;
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @media screen and (min-width: $breakpoint-md) {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 2rem;
+  }
 }
 </style>
