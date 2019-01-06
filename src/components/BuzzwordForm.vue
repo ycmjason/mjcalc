@@ -1,34 +1,31 @@
 <template>
-  <form @submit="onSubmit">
-    <input
+  <form @submit.prevent="onSubmit">
+    <mj-text-input
       class="buzzwordInput"
-      type="text"
       placeholder="Game Buzzword"
-      v-model="buzzword"
-      @keydown="onKeydown">
+      text-transform="uppercase"
+      :is-invalid-key="c => /^[^a-zA-Z]$/.test(c)"
+      :valid-pattern="/^[A-Z]+$/"
+      v-model="buzzword" />
     <input class="startButton" type="submit" value="Start">
   </form>
 </template>
 
 <script>
-const cleanBuzzword = v => v.toUpperCase().replace(/[^A-Z]/g, '');
+
 export default {
   data: () => ({
     buzzword: '',
+    isPristine: true,
   }),
-  watch: {
-    buzzword (v) {
-      this.buzzword = cleanBuzzword(v);
-    },
-  },
+
   methods: {
     onSubmit () {
-      this.$emit('submit', this.buzzword.toUppercase());
-    },
-    onKeydown ($event) {
-      // prevent the flickering input by preventDefault() for non-alphabet characters
-      if (/^[^a-zA-Z]$/.test($event.key)) {
-        $event.preventDefault();
+      const { buzzword } = this;
+
+      this.isPristine = false;
+      if (buzzword.length > 0) {
+        this.$emit('submit', buzzword);
       }
     },
   },
@@ -44,7 +41,6 @@ form {
 }
 
 .buzzwordInput {
-  text-transform: uppercase;
   flex-basis: 100%;
   flex-shrink: 0;
 
@@ -57,5 +53,9 @@ form {
 .startButton {
   flex-grow: 1;
   flex-shrink: 0;
+}
+
+.errorMessage {
+  flex-basis: 100%;
 }
 </style>
