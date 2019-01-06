@@ -29,7 +29,7 @@ export default {
 
     async start ({ commit }, buzzword) {
       commit('setBuzzword', buzzword);
-      const { players, rounds } = await gameService.findOrCreate(buzzword);
+      const { players, rounds } = await gameService.findOneOrCreate(buzzword);
       commit('setPlayers', players);
       commit('setRounds', rounds);
       commit('start');

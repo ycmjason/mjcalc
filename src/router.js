@@ -11,5 +11,11 @@ export default new Router({
       name: 'home',
       component: require('./components/pages/Home.vue').default,
     },
+    {
+      path: '/g/:buzzword',
+      name: 'game',
+      component: require('./components/pages/Game.vue').default,
+      props: true,
+    },
   ],
 });

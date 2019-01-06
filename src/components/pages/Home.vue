@@ -43,7 +43,6 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
 import DefaultLayout from '../layouts/DefaultLayout.vue';
 import BuzzwordForm from '../BuzzwordForm.vue';
 
@@ -53,7 +52,15 @@ export default {
     BuzzwordForm,
   },
 
-  methods: mapActions('game', ['start']),
+  methods: {
+    async start (buzzword) {
+      await this.$store.dispatch('game/start', buzzword);
+      this.$router.push({
+        name: 'game',
+        params: { buzzword },
+      });
+    },
+  },
 };
 </script>
 

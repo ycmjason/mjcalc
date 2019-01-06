@@ -4,7 +4,7 @@ import { $asleep } from '../utils';
 const GAMES = {};
 
 export default {
-  async start(buzzword) {
+  async findOneOrCreate (buzzword) {
     // TODO: interact with firestore to retrieve already existing game or create a new game
     await $asleep(800);
     return GAMES[buzzword] = {

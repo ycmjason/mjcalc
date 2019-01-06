@@ -19,7 +19,12 @@
   <div>
     <header>
       <div class="container">
-        <h1 class="siteName">{{ $t('siteName') }}</h1>
+        <router-link
+            tag="h1"
+            to="/"
+            class="siteName">
+          {{ $t('siteName') }}
+        </router-link>
       </div>
     </header>
     <main class="container">
