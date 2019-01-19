@@ -17,7 +17,7 @@ const toCapitalized = s => s.split(' ').map((word) => word[0].toUpperCase() + wo
 
 export default {
   props: {
-    value: '',
+    value: String,
     isInvalidKey: {
       type: Function,
       default: () => () => false,
@@ -56,6 +56,12 @@ export default {
   },
 
   watch: {
+    value: {
+      immediate: true,
+      handler (v) {
+        this.$data._value = v;
+      },
+    },
     '$data._value': function (v) {
       this.isPristine = false;
       const transformed = this.textTransformFn(v);

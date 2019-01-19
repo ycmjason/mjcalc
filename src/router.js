@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import Home from '@/components/pages/Home.vue';
 
 Vue.use(Router);
 
@@ -9,12 +10,12 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: require('./components/pages/Home.vue').default,
+      component: Home,
     },
     {
       path: '/g/:buzzword',
       name: 'game',
-      component: require('./components/pages/Game.vue').default,
+      component: () => import(/* webpackChunkName: "about" */ '@/components/pages/Game.vue'),
       props: true,
     },
   ],

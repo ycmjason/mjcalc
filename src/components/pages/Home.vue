@@ -3,7 +3,7 @@
   "en": {
     "welcome": {
       "title": "Welcome!",
-      "message": "Welcome to MJCalc! This is the best Mahjong Score Calculator you will find because I built this. Go on and try it out!"
+      "message": "<p>Welcome to MJCalc! This is the best Mahjong Score Calculator you will find because I built this.</p><p>Go on and try it out! Put a random buzzword and start your game!</p>"
     },
     "joinGameForm": {
       "title": "Join or Create Game"
@@ -32,7 +32,7 @@
     <main>
       <section class="welcome">
         <h2>{{ $t('welcome.title') }}</h2>
-        <p>{{ $t('welcome.message') }}</p>
+        <div v-html="$t('welcome.message')"></div>
       </section>
       <section class="joinGameForm">
         <h2>{{ $t('joinGameForm.title') }}</h2>
@@ -54,7 +54,6 @@ export default {
 
   methods: {
     async start (buzzword) {
-      await this.$store.dispatch('game/start', buzzword);
       this.$router.push({
         name: 'game',
         params: { buzzword },

@@ -12,8 +12,15 @@
 </template>
 
 <script>
+import gameService from '@/services/gameService';
 
 export default {
+  created () {
+    gameService.getFreeBuzzword().then(buzzword => {
+      if (this.buzzword !== '') return;
+      this.buzzword = buzzword;
+    });
+  },
   data: () => ({
     buzzword: '',
     isPristine: true,

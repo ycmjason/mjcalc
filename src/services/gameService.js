@@ -1,17 +1,44 @@
-import { $asleep } from '../utils';
+import { games } from '@/fires';
+import { random } from '@/utils';
+import { shuffle } from '@/utils/array';
+import buzzwords from '@/resources/buzzwords.json';
 
-// mock games to fake data
-const GAMES = {};
+const isBuzzwordFree = async buzzword => {
+  return await games.findById(buzzword) === null;
+};
 
-export default {
+const randomBuzzword = () => Array.from(
+  { length: 4 },
+  () => String.fromCharCode(random.rounded(65, 65 + 26))
+);
+
+const gameService = {
+  async getFreeBuzzword () {
+    for (const buzzword of shuffle(buzzwords)) {
+      if (await isBuzzwordFree(buzzword)) {
+        return buzzword;
+      }
+    }
+
+    let buzzword;
+    do {
+      buzzword = randomBuzzword();
+    } while (!(await isBuzzwordFree(buzzword)));
+
+    return buzzword;
+  },
+
   async findOneOrCreate (buzzword) {
-    // TODO: interact with firestore to retrieve already existing game or create a new game
-    await $asleep(800);
-    return GAMES[buzzword] = {
-      buzzword,
-      players: [],
-      rounds: [],
-      ...GAMES[buzzword],
-    };
+    return await games.findById(buzzword)
+      || await games.createWithId(
+        buzzword,
+        {
+          buzzword,
+          players: [],
+          rounds: [],
+        },
+      );
   },
 };
+
+export default gameService;

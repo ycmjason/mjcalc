@@ -18,6 +18,16 @@ import DefaultLayout from '../layouts/DefaultLayout.vue';
 
 export default {
   props: ['buzzword'],
+  watch: {
+    buzzword: {
+      immediate: true,
+      async handler () {
+        const { buzzword } = this;
+        await this.$store.dispatch('game/start', buzzword);
+      },
+    },
+  },
+
   components: {
     DefaultLayout,
   },

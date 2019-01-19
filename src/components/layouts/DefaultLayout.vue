@@ -59,6 +59,7 @@ header {
 }
 
 .siteName {
+  cursor: pointer;
   margin: 0;
   text-align: center;
 
