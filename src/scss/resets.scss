@@ -8,6 +8,10 @@ html, body {
   box-sizing: inherit;
 }
 
+button, input, optgroup, select, textarea {
+  line-height: inherit;
+}
+
 button {
   color: inherit;
 }

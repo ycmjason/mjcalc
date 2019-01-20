@@ -5,6 +5,7 @@
     </div>
     <div class="modal" :class="{ 'modal-show': show }" @click="close">
       <div class="modal_card" @click.stop>
+        <mj-icon class="modal_card_close" @click="close">close</mj-icon>
         <slot />
       </div>
     </div>
@@ -84,10 +85,24 @@ export default {
 
 .modal_card {
   background: #ffffff;
-  padding: 1rem;
   border-radius: 5px;
   position: absolute;
   top: 5%;
   max-width: 80vw;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal_card_close {
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  border-radius: 999px;
+  background: white;
+  margin: 0.3rem;
+  cursor: pointer;
 }
 </style>

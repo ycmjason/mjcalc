@@ -59,6 +59,7 @@ export default {
         this.$emit('submit', upperBuzzword);
       }
     },
+
     onKeydown ($event) {
       if (!/[A-Za-z0-9]/.test($event.key)) {
         $event.preventDefault();
