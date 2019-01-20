@@ -44,7 +44,7 @@
 
 <script>
 import DefaultLayout from '../layouts/DefaultLayout.vue';
-import BuzzwordForm from '../BuzzwordForm.vue';
+import BuzzwordForm from './Home/BuzzwordForm.vue';
 
 export default {
   components: {

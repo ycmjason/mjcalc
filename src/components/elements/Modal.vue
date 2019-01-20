@@ -1,15 +1,15 @@
 <template>
-  <div>
-    <div @click="trigger">
+  <span>
+    <span @click="open">
       <slot name="trigger" />
-    </div>
+    </span>
     <div class="modal" :class="{ 'modal-show': show }" @click="close">
       <div class="modal_card" @click.stop>
         <mj-icon class="modal_card_close" @click="close">close</mj-icon>
         <slot />
       </div>
     </div>
-  </div>
+  </span>
 </template>
 
 <script>
@@ -45,7 +45,7 @@ export default {
   }),
 
   methods: {
-    trigger () {
+    open () {
       this.show = true;
       this.unfixBodyScroll = fixBodyScroll();
     },

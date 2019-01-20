@@ -9,26 +9,26 @@
 
 <template>
   <DefaultLayout>
-    <h1>Game board</h1>
-    <mj-modal>
-      <button slot="trigger">
-        <mj-icon>link</mj-icon> Invite
-      </button>
-      <div class="inviteYourFriend">
-        <h2>Invite your friend</h2>
-        <p>Anyone with the link can <b>view</b> and <b>edit</b> the game.</p>
-        <mj-copy-text :text="gameLink" />
-      </div>
-    </mj-modal>
+    <h1>Game Board</h1>
+    <section>
+      <InviteModal :gameLink="gameLink" />
+    </section>
+    <section>
+      <PlayersPanel />
+    </section>
   </DefaultLayout>
 </template>
 
 <script>
 import DefaultLayout from '../layouts/DefaultLayout.vue';
+import InviteModal from './Game/InviteModal.vue';
+import PlayersPanel from './Game/PlayersPanel.vue';
 
 export default {
   components: {
     DefaultLayout,
+    InviteModal,
+    PlayersPanel,
   },
 
   props: ['buzzword'],
@@ -57,5 +57,9 @@ export default {
   h2 {
     margin-top: 0;
   }
+}
+
+section {
+  margin-bottom: 1.6rem;
 }
 </style>

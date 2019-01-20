@@ -34,7 +34,7 @@ const gameService = {
         buzzword,
         {
           buzzword,
-          players: [],
+          players: ['Player 1', 'Player 2', 'Player 3', 'Player 4'],
           rounds: [],
         },
       );
