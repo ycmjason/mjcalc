@@ -27,10 +27,14 @@ input {
 }
 
 button, input[type=submit] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: 0;
   padding: 0.5rem 1rem;
   background: $color-primary;
   color: #FFFFFF;
+  text-transform: uppercase;
   
   &:hover {
     background: lighten($color-primary, 10%);
@@ -40,6 +44,10 @@ button, input[type=submit] {
   &:disabled {
     background: lighten($color-primary, 30%);
     pointer-events: none;
+  }
+
+  i.material-icons {
+    margin-right: 0.5rem;
   }
 }
 
