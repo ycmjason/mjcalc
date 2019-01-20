@@ -29,8 +29,15 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '@/scss/config.scss';
+
 button:not(:first-child){
-  margin-left: 0.5rem;
+  margin-top: 0.5rem;
+
+  @media screen and (min-width: $breakpoint-sm) {
+    margin-left: 0.5rem;
+    margin-top: 0;
+  }
 }
 </style>
