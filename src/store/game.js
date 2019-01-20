@@ -1,9 +1,11 @@
-import gameService from '../services/gameService';
+import gameService from '@/services/gameService';
+import { deepEqual } from '@/utils';
 
 const getInitialState = () => ({
   started: false,
   buzzword: null,
   players: [],
+  currentPlayers: [],
   rounds: [],
 });
 
@@ -19,6 +21,10 @@ export default {
     start: (state) => state.started = true,
     setBuzzword: (state, buzzword) => state.buzzword = buzzword,
     setPlayers: (state, players) => state.players = players,
+    setCurrentPlayers: (state, playerIds) => {
+      if (playerIds.length !== 4) throw Error('Mahjong is a game of 4');
+      state.currentPlayers = playerIds;
+    },
     addPlayer: (state, player) => state.players.push(player),
     setRounds: (state, rounds) => state.rounds = rounds,
     addRound: (state, round) => state.rounds.push(round),
@@ -29,11 +35,23 @@ export default {
 
     async start ({ commit }, buzzword) {
       commit('setBuzzword', buzzword);
-      const { players, rounds } = await gameService.findOneOrCreate(buzzword);
+      const {
+        players,
+        currentPlayers,
+        rounds,
+      } = await gameService.findOneOrCreate(buzzword);
       commit('setPlayers', players);
+      commit('setCurrentPlayers', currentPlayers);
       commit('setRounds', rounds);
       commit('start');
-      return { buzzword, players, rounds };
+      return { buzzword, players, currentPlayers, rounds };
+    },
+
+    async setPlayers ({ state, commit }, newPlayers) {
+      const { started, buzzword, players } = state;
+      if (!started) return;
+      if (deepEqual(players, newPlayers)) return;
+      gameService.setPlayers(buzzword, newPlayers);
     },
   },
 

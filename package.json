@@ -15,6 +15,9 @@
   "dependencies": {
     "firebase": "^5.8.0",
     "fires": "^0.2.1",
+    "lodash.debounce": "^4.0.8",
+    "lodash.isequal": "^4.5.0",
+    "lru-cache": "^5.1.1",
     "normalize.css": "^8.0.1",
     "vue": "^2.5.22",
     "vue-i18n": "^8.7.0",
@@ -50,7 +53,7 @@
   ],
   "gitHooks": {
     "pre-commit": "lint-staged",
-    "commit-msg": "commitlint -e $GIT_PARAMS"
+    "commit-msg": "# commitlint -e $GIT_PARAMS"
   },
   "lint-staged": {
     "*.js": [
