@@ -7,7 +7,7 @@ env:
 language: node_js
 
 before_install:
-  - openssl aes-256-cbc -K $encrypted_dec992b2fd9f_key -iv $encrypted_dec992b2fd9f_iv -in .env.ci.local.enc -out .env.ci.local -d
+  - openssl aes-256-cbc -K $encrypted_dec992b2fd9f_key -iv $encrypted_dec992b2fd9f_iv -in .env.staging.local.enc -out .env.staging.local -d
 
 install:
   - npm install
@@ -19,7 +19,7 @@ script:
   - npm test
 
 before_deploy:
-  - npm run build
+  - npm run predeploy:staging
 
 deploy:
   skip_cleanup: true
