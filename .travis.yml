@@ -1,10 +1,13 @@
 notifications:
   email: false
 
+env:
+  - NODE_ENV=ci
+
 language: node_js
 
-preinstall:
-  - npm i -g npm
+before_install:
+  - openssl aes-256-cbc -K $encrypted_dec992b2fd9f_key -iv $encrypted_dec992b2fd9f_iv -in .env.ci.local.enc -out .env.ci.local -d
 
 install:
   - npm install
