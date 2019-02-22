@@ -18,15 +18,15 @@ node_js:
 script:
   - npm test
 
-before_deploy:
-  - npm run predeploy:staging
-
 deploy:
-  skip_cleanup: true
-  provider: firebase
-  token:
-    secure: pyNmLG5UeH7MWBqiT+FgnKOw7nI1FqCl7j1qUeDsbDBwwThIQuaIv0USVuoTF08LbVB/8AdX74TDxhNWVa2iVVvkVM2WrxdX8Tsm37y9saYo2apPvBLTVX+vdRlszadz0AXee5qwCMfLWjPtpO03kOiDH4xQphkepVEzmnYasjPTURMxEgNQsI7v1V7vc0ehAQ72bKXGaYGjSNJrWqbIJy9k7rhDlx+vDM8AaInlQR5ots6+x56mOZoyeTS6FGpbO8HR9eVaiBs8W2ScwzHJqdWYBw9eK7kB6BY9EVV0twknlm6mgPh8dNbdy8+h3lcvbi+vUhG7HzgT5dlrB0DliivGZqkMmntk0lMhDn123tdXy7T51KtWh/SCbWwL7mc1mPUd9DzS3BSd1Pk1kP1Ft0zolehecK3cqaMli/ojXXaytO+lBVDREs8/cuG8T1N5g7hWpWfPTcxIZ/gRzP/3Sra3Sop2Xs2q7aVARhc77IH9rq0mkhmGBzo4HVZMpvsBEz29NlJSj8DpmT+VOge2f1JAHfdpF8MvAjeRMJCe6RW/1CwuKA0N0R2kMTFEb/Oc+tFr9kADEsZct1ADlvPOPlYR8agD0QrWZ+C7/BuDgOTsnjueXhG1Ie4DYKm+qheKx2GUYfznlmfOqjPUOx3Uhdg85U8jQta5U91wuah+Fxk=
-  project: mjcalc-staging
-  on:
-    repo: ycmjason/mjcalc
-    branch: master
+  - provider: script
+    script: npm run deploy:staging -- --token \"$FIREBASE_TOKEN\"
+    skip_cleanup: true
+    on:
+      branch: master
+  - provider: script
+    script: npm run deploy:production -- --token \"$FIREBASE_TOKEN\"
+    skip_cleanup: true
+    on:
+      tags: true
+      branch: master
