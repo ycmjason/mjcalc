@@ -7,7 +7,7 @@ env:
 language: node_js
 
 before_install:
-  - openssl aes-256-cbc -K $encrypted_dec992b2fd9f_key -iv $encrypted_dec992b2fd9f_iv -in .env.staging.local.enc -out .env.staging.local -d
+  - openssl aes-256-cbc -K $encrypted_645dc410e90f_key -iv $encrypted_645dc410e90f_iv -in .env.staging.local.enc -out .env.staging.local -d
 
 install:
   - npm install
