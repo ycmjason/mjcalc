@@ -17,7 +17,7 @@ const randomBuzzword = () => Array.from(
 const getNewGame = buzzword => ({
   buzzword,
   players: ['Player 1', 'Player 2', 'Player 3', 'Player 4'],
-  currentPlayers: [1, 2, 3, 4],
+  currentPlayers: [0, 1, 2, 3],
   rounds: [],
 });
 

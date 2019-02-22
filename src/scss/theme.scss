@@ -19,7 +19,6 @@ input {
   padding: 0.5rem;
   border: 1px solid $color-primary;
   background: #FFF;
-  outline: none;
   
   &:focus {
     border-color: lighten($color-primary, 20%);
