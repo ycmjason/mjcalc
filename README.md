@@ -1,6 +1,6 @@
 # MJ Calc
 
-[![Build Status](https://travis-ci.org/ycmjason/mjcalc.svg?branch=master)](https://travis-ci.org/ycmjason/mjcalc)
+[![Build Status](https://travis-ci.com/ycmjason/mjcalc.svg?branch=master)](https://travis-ci.com/ycmjason/mjcalc)
 
 ```bash
 # Development Server
